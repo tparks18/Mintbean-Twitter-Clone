@@ -19,16 +19,16 @@ function Post({
     return (
       <div className="post">
         <div className="post__avatar">
-          <Avatar src="https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/284832/settings_images/rLlCifhXRJiT0RoN2FjK_Logo_roundbackground_black.png" />
+          <Avatar src={avatar} />
         </div>
         <div className="post__body">
           <div className="post__header">
             <div className="post__headerText">
               <h3>
-                Tatyana Parks{" "}
+                {displayName}{" "}
                 <span className="post__headerSpecial">
-                  <VerifiedUserIcon className="post__badge" />
-                  @taty
+                  {verified && <VerifiedUserIcon className="post__badge" />} @
+                  {username}
                 </span>
               </h3>
             </div>
@@ -36,10 +36,7 @@ function Post({
               <p>Hello</p>
             </div>
           </div>
-          <img
-            src="https://media3.giphy.com/media/65ATdpi3clADjomZ39/giphy.gif"
-            alt="gif"
-          />
+          <img src={image} alt="" />
           <div className="post__footer">
             <ChatBubbleOutlineIcon fontSize="small" />
             <RepeatIcon fontSize="small" />
