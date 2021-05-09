@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import './Feed.css'
 import TweetBox from "./TweetBox";
 import Post from "./Post";
-import db from './firebase';
+import "./Feed.css";
+import db from "./firebase";
+import FlipMove from "react-flip-move";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
@@ -13,16 +14,15 @@ function Feed() {
     );
   }, []);
 
-    return (
-      <div className="feed">
-        {/* Header */}
-        <div className="feed__header">
-          <h2>Home</h2>
-        </div>
+  return (
+    <div className="feed">
+      <div className="feed__header">
+        <h2>Home</h2>
+      </div>
 
-        {/* TweetBox*/}
-        <TweetBox />
-        {/* Post */}
+      <TweetBox />
+
+      <FlipMove>
         {posts.map((post) => (
           <Post
             key={post.text}
@@ -34,8 +34,9 @@ function Feed() {
             image={post.image}
           />
         ))}
-      </div>
-    );
+      </FlipMove>
+    </div>
+  );
 }
 
-export default Feed
+export default Feed;
